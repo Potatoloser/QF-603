@@ -1,0 +1,129 @@
+\section{CAPM (Cross Sectional Application), and Tests}
+\subsection{Capital Market Line(CML)}
+\[
+  \mathrm{Sharpe\ Ratio = \frac{\mathbb{E}(r_i-r_f)}{\sigma_i}}
+\]
+\subsection{Security Market Line(SML)}
+\[
+  r_i -r_f= \beta_i(r_m-r_f) 
+\]
+
+\[
+  \mathrm{Treynor\ Ratio = \frac{r_i-r_f}{\beta_i}} = \frac{r_m-r_f}{1}
+\]
+
+\begin{figure}
+  \centering
+  \begin{minipage}[t]{.5\textwidth}   %%%% [t] here
+  \centering
+  \begin{tikzpicture}
+    \draw[->](0,0)--(5,0) node[right,scale = 1]{{$\sigma_w$}};
+    \draw[->](0,0)--(0,5) node[above,scale = 1]{$r_w$};
+    \draw[->](0,1)--(4,5) node[above right,scale = 1]{\textcolor{orange}{CML}};
+    \node [left,scale = 1] at (0,3) {$r_m$};
+    \node [left,scale = 1] at (0,1) {$r_f$};
+    \node [below,scale = 1] at (2,0) {$\sigma_m$};
+    \draw[dashed](2,0)--(2,3);
+    \draw[dashed](0,3)--(2,3);
+  \end{tikzpicture}
+  \captionof{figure}{CML}
+  \label{fig:square}
+\end{minipage}%
+  \begin{minipage}[t]{.5\textwidth}   %%%% [t] here
+      \centering
+      \begin{tikzpicture}
+        \draw[->](0,0)--(5,0) node[right,scale = 1]{{$\beta$}};
+        \draw[->](0,0)--(0,5) node[above,scale = 1]{$r$};
+        \draw[->](0,1)--(4,5) node[above right,scale = 1]{\textcolor{orange}{SML}};
+        \node [left,scale = 1] at (0,3) {$r_m$};
+        \node [left,scale = 1] at (0,1) {$r_f$};
+        \node [below,scale = 1] at (2,0) {$1$};
+        \draw[dashed](2,0)--(2,3);
+        \draw[dashed](0,3)--(2,3);
+      \end{tikzpicture}
+      \captionof{figure}{SML}
+      \label{fig:rect}
+  \end{minipage}%
+\end{figure}
+
+
+\subsection{Market Model}
+Market model assumes that any stock's log return $r_{it}$ is bivariate normally distriuted with $r_{mt}$.
+
+A linear regression model of $r_{it}$ on $r_{mt}$ is 
+\[
+  r_{it} = a + br_{mt} + e_{it}
+\]
+where 
+\[
+  \begin{aligned}
+    a &= \mathbb{E}(r_{it}) - \frac{\sigma_{im}}{\sigma_m^2}\mathbb{E}(r_{mt})\\
+    b &= \frac{\sigma_{im}}{\sigma_m^2}
+  \end{aligned}
+\]
+\begin{remark}
+  In QF600, the we do regression on simple returns, not log returns. I do not know if both methods work fine or only exists one right version. 
+\end{remark}
+\subsection{Capital Asset Pricing Model(CAPM)}
+CAPM:
+\[
+  \mathbb{E}(r_{it}-r_{ft}) = b_i\mathbb{E}(r_{mt}-r_{ft})
+\]
+
+Do regression:
+\[
+  r_{it} - r_{ft} = a_i + b_i(r_{mt}-r_{ft}) + e_{it}
+\]
+
+OLS estimation of beta:
+\[
+  \hat{b_i} = \frac{\sum_{t=1}^T(r_{mt}-\bar{r_m})(r_{it}-\bar{r_i})}{\sum_{t=1}^T(r_{mt}-\bar{r_m})^2}
+\]
+
+\subsubsection{Some measurements}
+\begin{itemize}
+  \item standard error of $a$:
+    \[
+      \hat{\sigma_e}\sqrt{\frac{1}{T}+\frac{\bar{X}^2}{\sum_{t=1}^T(X_t-\bar{X})^2}}
+    \]
+  \item standard error of $b$:
+    \[
+      \hat{\sigma_e}\sqrt{\frac{1}{\sum_{t=1}^T(X_t-\bar{X})^2}}
+    \]
+  \item sum squared resid/residual Sum of Squares(SSR/RSS):
+  \[
+    \mathrm{SSR/RSS} = \sum_{t=1}^T\hat{e_t}^2
+  \]
+  \item standard error of regression:
+  \[
+    \sigma_e = \sqrt{\frac{1}{T-2}\mathrm{SSR}}
+  \]
+  \item Treynor ratio:
+  \[
+    \mathrm{Treynor\ ratio} \defeq  r_{mt} - r_{ft} = \frac{r_{it}-r_{ft}}{\beta_i}
+  \]
+  \item Jensen's measure:
+  \[
+    \mathrm{Jensen's \ measure} \defeq \mathbb{E}(r_{it}-r_{ft}) - b_i\mathbb{E}(r_{mt}-r_{ft})
+  \]
+  \item Sharpe ratio:
+  \[
+    \mathrm{Shapre \ ratio} \defeq  \frac{\mathbb{E}(r_{it}-r_{ft})}{\sigma_i} 
+  \]
+  \item $M^2 measurement$:
+  \[
+    M^2 \defeq \E (r_{it}-r_{ft})\frac{\sigma_m}{\sigma_i} - \E (r_{mt}-r_{ft})
+  \]
+  \item Information ratio:
+  \[
+    \mathrm{Information\ ratio} \defeq \frac{\E (r_{it}-r_{ft})}{\sigma_{i-f}}
+  \]
+  \item active return:
+  \[
+    \mathrm{active\ return} \defeq r_{it} - r_{ft}
+  \]
+  \item tracking error/active risk:
+  \[
+    \mathrm{tracking\ error} \defeq \sigma_{i-f}
+  \]
+\end{itemize}

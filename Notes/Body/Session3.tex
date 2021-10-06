@@ -1,0 +1,198 @@
+\section{Distributions}
+
+\subsection{Discrete Distributions}
+\subsubsection{Bernoulli Distribution}
+A Bernoulli random variable $X$ is either zero or one.
+\[
+\mathbb{P}(X = 0) = p,  \mathbb{P}(X = 1) = 1-p 
+\]
+
+PMF and CDF:
+\[
+        \mathbb{P}(X=x) = p^x(1-p)^{1-x}
+\]
+\[
+        F(x) = \begin{cases}
+            0& x<0\\
+            p& 0 \leq x\leq 1\\
+            1& x >1
+            \end{cases}     
+\]
+
+Mean and variance of Bernoulli distribution:
+\[
+    \begin{aligned}
+        \mu &= p\\
+        \sigma^2 &= p(1-p)       
+    \end{aligned}
+\]
+
+
+
+\subsubsection{Binomial Distribution}
+PMF and CDF:
+\[
+    \mathbb{P}(n;N,p) = \binom N n p^n(1-p)^{N-n}
+\]
+\[
+    F(k;N,p) = \mathbb{P}(X\leq k) = \sum_{i=0}^{|k|} \binom N i p^i(1-p)^{N-i}
+\]
+
+Mean and variance:
+\[
+    \begin{aligned}
+        \mu &= Np\\
+        Var(X) &= Np(1-p)
+    \end{aligned}
+\]
+
+\subsubsection{Poisson Distribution}
+\[
+    \mathbb{P}(X=n) = \frac{\lambda^n}{n!}e^{-\lambda}
+\]
+
+Mean and variance:
+\[
+    \begin{aligned}
+        \mu &= \lambda\\
+        Var(X) &= \lambda
+    \end{aligned}
+\]
+
+\subsection{Continuous Distributions}
+
+\subsubsection{Normal Distribution}
+If $X \stackrel{d}{\sim} \mathcal{N}(\mu,\sigma^2)$, the PDF and CDF:
+\[
+f(x) = \frac{1}{\sqrt{2\pi \sigma^2}} \exp(-\frac{1}{2}(\frac{x-\mu}{\sigma})^2)
+\]
+\[
+    F(x) = \frac{1}{2}(1+\mathrm{erf}(\frac{x-\mu}{\sigma \sqrt{2}}))
+\]
+
+Where erf denotes error function:
+\[
+    \mathrm{erf} z= \frac{2}{\sqrt{\pi}}\int_0^z e^{-t^2}dt 
+\]
+
+Mean and Variance:
+\[
+\begin{aligned}
+    \mathbb{E}(x) &= \int_{-\infty}^{\infty}xf(x)dx = \mu\\
+    \mathrm{Var}(x) &= \int_{-\infty}^{\infty}(x-\mu)^2 f(x)dx = \sigma^2
+\end{aligned}    
+\]
+
+\subsubsection{Lognormal Distribution}
+If $Y \sim \mathcal{N}(\mu,\sigma)$, we define $X = e^Y$, then we say X follows Lognormal Distribution.
+
+PDF:
+\[
+    f(x) = \frac{1}{x\sigma \sqrt{2\pi}} \exp(-\frac{(\ln x-\mu)^2}{2\sigma^2})
+\]
+
+CDF:
+\[
+    F(x) = \frac{1}{2}(1+\mathrm{erf}(\frac{\ln x-\mu}{\sigma \sqrt{2}}))
+\]
+
+Mean and Variance:
+\[
+\begin{aligned}
+    \mathbb{E}(x) &= \exp (\mu + \frac{\sigma^2}{2}) \\
+    \mathrm{Var}(x) &= (\exp (\sigma^2)-1)\exp (2\mu + \sigma^2)
+\end{aligned}    
+\]
+
+\subsubsection{Chi-Squared Distribution}
+Suppose we have $k$ independent normal variables $z_1,\cdots,z_k$, let $S = \sum_{i=1}^k {z_i}^2$, then we say $S$ follows Chi-Squared Distribution:
+\[
+    S \sim \chi_k^2
+\]
+
+PDF:
+\[
+    f(x) = \frac{1}{2^{k/2}\Gamma(k/2)} x^{k/2 -1}e^{-x/2}
+\]
+
+Where $\Gamma$ function is defined:
+\[
+    \Gamma(n) = \int_0^\infty x^{n-1}e^{-x} dx
+\]
+
+% CDF:
+% \[
+%     F(x) = \frac{1}{\Gamma(k/2)}\mathrm{\gamma}(\frac{k}{2},\frac{x}{2})
+% \]
+
+Mean and Variance:
+\[
+\begin{aligned}
+    \mathbb{E}(x) &= k \\
+    \mathrm{Var}(x) &= 2k
+\end{aligned}    
+\]
+
+\subsubsection{Student’s $t$ Distribution}
+Let $Z \sim \mathcal{N}(0,1)$, $U \sim \chi_k^2$, we define:
+\[
+    X = \frac{Z}{\sqrt{U/k}}
+\]
+
+Then $X$ follows Student’s $t$ distribution:
+\[
+    X \sim t(K)
+\]
+
+PDF:
+\[
+    f(x) = \frac{\Gamma(\frac{k+1}{2})}{\sqrt{k\pi}\Gamma(\frac{k}{2})} (1+\frac{x^2}{k})^{-\frac{k+1}{2}}
+\]
+
+Mean and Variance:
+\[
+\begin{aligned}
+    \mathbb{E}(x) &= 0 \\
+    \mathrm{Var}(x) &= \frac{k}{k-2}
+\end{aligned}    
+\]
+
+Note that t-distributed random variable will be the test statistic of sample mean esitimates.
+
+\subsubsection{F-Distribution}
+If $U_1 \sim \chi_{k_1}^2$, $U_2 \sim \chi_{k_2}^2$, $U_1$ and $U_2$ are independent, we define
+\[
+    X = \frac{U_1/k_1}{U_2/k_2}
+\]
+
+Then we say $X$ follows F-Distribution:
+\[
+    X \sim \mathrm{F}(k_1,k_2)
+\]
+
+PDF:
+\[
+    f(x) = \frac{
+        \sqrt{
+            \frac{(k_1x)^{k_1}k_2^{k_2}}{(k_1x+k_2)^{k_1+k_2}}
+        }
+    }{x \mathrm{B}(\frac{k_1}{2},\frac{k_2}{2})}
+\]\
+Where
+\[
+    \mathrm{B}(x,y) = \int_0^1 z^{x-1}(1-z)^{y-1}dz
+\]
+
+Mean and variance:
+\[
+    \begin{aligned}
+        \mu &= \frac{k_2}{k_2-2}\\
+        \sigma^2 &= \frac{2k_2^2(k_1+k_2-2)}{k_1(k_2-2)^2(k_2-4)}
+    \end{aligned}
+\]
+
+F-distribution has properties:
+\begin{itemize}
+    \item When $k_1,k_2$ aprroximate infinity, F-distribution equals to standard normal distribution.
+    \item If $X\sim t(k)$, then $X^2 \sim \mathrm{F}(1,k)$.
+\end{itemize}
