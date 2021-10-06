@@ -1,5 +1,6 @@
 <!-- Author: Dongsheng Deng -->
 <!-- Email: ddswhu@outlook.com -->
+Notes for QF603 uses elegantnotes as template. For details, please read below.
 
 # ElegantNote
 
