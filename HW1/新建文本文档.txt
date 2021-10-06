@@ -1,0 +1,133 @@
+\documentclass[11pt]{article}
+\usepackage{amsmath, amssymb, amscd, amsthm, amsfonts}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\oddsidemargin 0pt
+\evensidemargin 0pt
+\marginparwidth 40pt
+\marginparsep 10pt
+\topmargin -20pt
+\headsep 10pt
+\textheight 8.7in
+\textwidth 6.65in
+\linespread{1.2}
+
+\title{QF603 Homework1}
+\author{Zhou Shen}
+\date{08/31/2021}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{conjecture}[theorem]{Conjecture}
+
+\newcommand{\rr}{\mathbb{R}}
+
+\newcommand{\al}{\alpha}
+\DeclareMathOperator{\conv}{conv}
+\DeclareMathOperator{\aff}{aff}
+
+\begin{document}
+
+\maketitle
+
+\section{Q1}
+The probability that Bond A defaults given that Bond B defaults is 1.10\%.
+
+\section{Q2}
+X1 can be arranged as:
+\[
+X1 = [-0.3, -0.1, 0.1, 0.2, 0.4, 0.5, 2.0].
+\]
+So the median of X1 is the 4th number 0.2. 
+
+\section{Q3}
+
+\noindent The mean of X1 is calculated by
+\[
+mean(X1) = \frac{(-0.3 + (-0.1) + 0.1 + 0.2 + 0.4 + 0.5 + 2.0)}{7} = 0.4.
+\]
+
+\section{Q4}
+The variance of X1 is calculated by
+\[
+Var(X1) = \frac{\sum_{i:i=1}^7{( X1_i-mean( X1 ) ) ^2}}{7} \approx 0.49.
+\]
+
+\section{Q5}
+\subsection{B1}
+The probability of an underperformer to beat market 3 years in a row is
+\[
+P(3B|Under) = P(B|under)^3 = 0.1^3 =  0.10 \%.
+\]
+The probability of an in-line performer to beat market 3 years in a row is
+\[
+P(3B|Inline) = P(B|Inline)^3 = 0.5^3 =  12.50 \%.
+\]
+The probability of an outperformer to beat market 3 years in a row is
+\[
+P(3B|Out) = P(B|Out)^3 = 0.55^3 \approx 16.64 \%.
+\]
+
+\subsection{B2}
+The unconditional probability of observing the manager beat the market 3 years in a row given prior beliefs is
+\[
+\begin{aligned}
+P(3B) &= P(3B|Under)P(Under)+P(3B|Inline) P(Inline)+P(3B|Out)P(Out) \\
+&\approx 12.92 \%. 
+\end{aligned}
+\]
+
+\subsection{B3}
+The probability of manager to be an underperformer is
+\[
+\begin{aligned}
+P(Under|3B) &= \frac{P(3B|Under)P(Under)}{P(3B)}\\
+&\approx 0.077\%.
+\end{aligned}
+\]
+The probability of manager to be an in-line performer is
+\[
+\begin{aligned}
+P(Inline|3B) &= \frac{P(3B|Inline)P(Inline)}{P(3B)}\\
+&\approx 87.05\%. 
+\end{aligned}
+\]
+The probability of manager to be an outperformer is
+\[
+\begin{aligned}
+P(Out|3B) &= \frac{P(3B|Out)P(Out)}{P(3B)}\\
+&\approx 12.87\%. 
+\end{aligned}
+\]
+
+\subsection{B4}
+First, we calculate $P(4B)$:
+\[
+\begin{aligned}
+P(4B) &= P(4B|Under)P(Under)+P(4B|Inline) P(Inline)+P(4B|Out)P(Out) \\
+&\approx 6.54 \%. 
+\end{aligned}
+\]
+The probability of manager to be an underperformer is
+\[
+\begin{aligned}
+P(Under|4B) &= \frac{P(4B|Under)P(Under)}{P(4B)}\\
+&\approx 0.015\%.
+\end{aligned}
+\]
+The probability of manager to be an in-line performer is
+\[
+\begin{aligned}
+P(Inline|4B) &= \frac{P(4B|Inline)P(Inline)}{P(4B)}\\
+&\approx 86.00\%. 
+\end{aligned}
+\]
+The probability of manager to be an outperformer is
+\[
+\begin{aligned}
+P(Out|4B) &= \frac{P(4B|Out)P(Out)}{P(4B)}\\
+&\approx 13.99\%. 
+\end{aligned}
+\]
+\end{document}

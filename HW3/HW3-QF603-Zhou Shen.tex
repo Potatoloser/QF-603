@@ -1,0 +1,223 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%% Template for AIMS Rwanda Assignments         %%%              %%%
+%%% Author:   AIMS Rwanda tutors                             %%%   ###        %%%
+%%% Email: tutors2017-18@aims.ac.rw                               %%%   ###        %%%
+%%% Copyright: This template was designed to be used for    %%% #######      %%%
+%%% the assignments at AIMS Rwanda during the academic year %%%   ###        %%%
+%%% 2017-2018.                                              %%%   #########  %%%
+%%% You are free to alter any part of this document for     %%%   ###   ###  %%%
+%%% yourself and for distribution.                          %%%   ###   ###  %%%
+%%%                                                         %%%              %%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%% Ensure that you do not write the questions before each of the solutions because it is not necessary. %%%%%% 
+
+\documentclass[12pt,a4paper]{article}
+
+%%%%%%%%%%%%%%%%%%%%%%%%% packages %%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{graphicx}
+\usepackage{tabulary}
+
+\usepackage{amsmath}
+\usepackage{fancyhdr}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{placeins}
+\usepackage{amsfonts}
+\usepackage{graphicx}
+\usepackage[all]{xy}
+\usepackage{tikz}
+\usepackage{verbatim}
+\usepackage[left=2cm,right=2cm,top=3cm,bottom=2.5cm]{geometry}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{multirow}
+\usepackage{psfrag}
+
+
+%%%%%%%%%%%%%%%%%%%%% students data %%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\student}{\textbf{Zhou Shen}}
+\newcommand{\course}{\textbf{QF603 Quantitative Analysis of Financial Market}}
+\newcommand{\assignment}{\textbf{3}}
+
+%%%%%%%%%%%%%%%%%%% using theorem style %%%%%%%%%%%%%%%%%%%%
+\newtheorem{thm}{Theorem}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{exa}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\newtheorem{coro}[thm]{Corollary}
+\newtheorem{quest}{Question}[section]
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{lipsum}%% a garbage package you don't need except to create examples.
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{pythonhighlight}
+\pagestyle{fancy}
+%\lhead{Azamuke Denish}
+\rhead{ \thepage}
+%\cfoot{\textbf{AIMS Rwanda Academic Year 2020 - 2021}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+%%%%%%%%%%%%%%  Shortcut for usual set of numbers  %%%%%%%%%%%
+
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%555
+\begin{document}
+
+%%%%%%%%%%%%%%%%%%%%%%% title page %%%%%%%%%%%%%%%%%%%%%%%%%%
+\thispagestyle{empty}
+\begin{center}
+	\includegraphics[width = 0.8\textwidth]{D:/SMU/SMU-LKCSB-logo.png}
+	%\textbf{AFRICAN INSTITUTE FOR MATHEMATICAL SCIENCES \\[0.5cm]
+	%(AIMS RWANDA, KIGALI)}
+	\vspace{0.5cm}
+\end{center}
+%%%%%%%%%%%%%%%%%%%%% assignment information %%%%%%%%%%%%%%%%
+\noindent
+\rule{17cm}{0.2cm}\\[0.3cm]
+Name: \student \hfill Assignment Number: \assignment\\[0.1cm]
+Course: \course \hfill Date: \today\\
+\rule{17cm}{0.05cm}
+\vspace{1.0cm}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\pdfbookmark[1]{Problem 1}{p1}
+\textbf{Problem 1.}
+
+For linear combination of 2 variables, the variance is shown in equation (\ref{eq:LCV}):
+
+\begin{equation}\label{eq:LCV}
+    \mathrm{Var}(aA+bB+c) = a^2\mathbb{V}(A) + b^2\mathbb{V}(B) + 2ab\mathbb{C}(A,B)
+\end{equation}
+    
+Based on the assumption from the question:
+\[
+\begin{aligned}
+    a &= 0.6\\
+    b &= 0.4\\
+    c &= 0 \\
+    \mathbb{V}(A) & = 0.2\\
+    \mathbb{V}(B) & = 0.1\\
+    \mathbb{C}(A,B) & = 0\\
+\end{aligned}    
+\]
+
+Subsitute variables in equation (\ref{eq:LCV}):
+\[
+\begin{aligned}
+    \mathrm{Var}(aA+bB+c) &= 0.6^2 \times 0.2 + 0.4^2 \times 0.1 + 2 \times 0.6 \times 0.4 \times 0\\
+    &= 0.088\\
+    &= 8.8 \%
+\end{aligned}
+\]
+
+So the answer for Q1 is 2. 8.8\%.
+\\
+
+\pdfbookmark[1]{Problem 2}{p2}
+\textbf{Problem 2.}
+
+The difference between Q1 and Q2 is that we set
+\[
+    \mathbb{C}(A,B) = 0.5
+\]
+
+Do the calculation again, based on equation (\ref{eq:LCV}):
+\[
+\begin{aligned}
+    \mathrm{Var}(aA+bB+c) &= 0.6^2 \times 0.2 + 0.4^2 \times 0.1 + 2 \times 0.6 \times 0.4 \times 0 + 2 \times 0.6 \times 0.4 \times 0.5\\
+    &= 0.328\\
+    &= 32.8 \%
+\end{aligned}
+\]
+
+So the answer for Q2 is 3. 32.8\%.
+\\
+
+\pdfbookmark[1]{Problem 3}{p3}
+\textbf{Problem 3.}
+Based on Shape Ratio's definition
+\[
+    \mathrm{Sharpe\ Ratio} = \frac{\mathbb{E}(R_i - R_f)}{\sigma_i}
+\]
+and provided conditions by Q3
+\[
+    \begin{aligned}
+        R_{AB} &= aR_A + bR_B\\
+        &= 0.6\times 0.2 + 0.4 \times 0.1\\
+        & = 0.16\\
+        R_f &= 0
+    \end{aligned}  
+\]
+
+Then we have Sharpe ratio for Q1:
+\[
+    \begin{aligned}
+        \mathrm{Sharpe\ Ratio} &= \frac{0.16}{\sqrt{0.088}}\\
+        & \approx 0.5394
+    \end{aligned}  
+\]
+
+Sharpe ratio for Q2:
+\[
+    \begin{aligned}
+        \mathrm{Sharpe\ Ratio} &= \frac{0.16}{\sqrt{0.328}}\\
+        & \approx 0.2794
+    \end{aligned}  
+\]
+
+So the answer for Q3 is 2. None of these.
+\\
+
+\pdfbookmark[1]{Problem 4}{p4}
+\textbf{Problem 4.}
+
+We should use Hazard Model. So the answer is 3. Proportional Hazards Cox model.
+\\
+
+\pdfbookmark[1]{Problem 5}{p5}
+\textbf{Problem 5.}
+
+Jensen's Alpha is intercept coeffcient from market model regression using excess returns. For passive portfolio, it represents pricing error relative to CAPM. Market efficiency refers to the degree to which market prices reflect all available, relevant information. 
+
+With higher Jensen's Alpha, which means much information in market is not incorporated into prices, so the lower market efficiency, vice versa.
+\\
+
+\pdfbookmark[1]{Problem 6}{p6}
+\textbf{Problem 6.}
+
+Cross sectional based trading strategy: a hedge fund manager will go long in the 10 biotech stocks that should outperform and short the 10 biotech stocks that will underperform. Therefore, what the actual market does won't matter (much) because the gains and losses will offset each other. If the sector moves in one direction or the other, a gain on the long stock is offset by a loss on the short.
+
+Time series market timing based strategy: a investor will short S\& P500 when the 10 days moving average falls below 50 days moving average, and will long S\&P500 when the 10 days moving average goes above 50 days moving average.
+
+\textbf{Differences}:
+\begin{itemize}
+    \item Cross sectional based trading strategy's asset's momentum is compared to the momentum of other assets, while Trend Following, on the other hand, is constructed using time series momentum, which focuses purely on an asset’s own past returns.
+    \item The Momentum factor will be market neutral to global equity markets at all times, while the Trend Following factor can take on conditional (positive or negative) correlation in any of the four asset classes: equities, fixed income, currencies, and commodities, but it should not demonstrate meaningful correlation to those asset classes over a full market cycle.
+    \item Cross sectional based trading strategy is an equity style that is built using individual stocks. Time series market timing based strategy is a macro style and is therefore built using derivatives (e.g., futures and forwards) in several macro asset classes.
+    \item Cross sectional based trading strategy considers the stock’s performance over the past twelve months, whereas the Time series market timing based strategy considers the contract’s performance over the past six months and over the past twelve months.
+\end{itemize}
+
+\textbf{Remark}: \emph{The difference is refered to} \href{https://www.venn.twosigma.com/vennsights/momentum-and-trend-following}{https://www.venn.twosigma.com/vennsights/momentum-and-trend-following}.
+\\
+
+\pdfbookmark[1]{Problem 7}{p7}
+\textbf{Problem 7.}
+
+By the definiton of VaR, the answer is C. Lose less than USD\$1,000,000.
+
+
+\end{document}
